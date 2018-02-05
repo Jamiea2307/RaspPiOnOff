@@ -47,29 +47,49 @@
 
 <script>
 
+//    $(function(){
+//        var onAlert = function(){
+//            console.log('Light on!');
+//        };
+//
+//        var offAlert = function(){
+//            console.log('Light off!');
+//        };
+//
+//        $(document).keydown(function(e){
+//            switch(e.key){
+//                case 37:
+//                    onAlert();
+//                    break;
+//                case 39:
+//                    offAlert();
+//                    break;
+//            }
+//        });
+//
+//        $('#left-btn').click(onAlert);
+//
+//        $('#right-btn').click(offAlert);
+//    });
+
     $(function(){
-        var onAlert = function(){
-            console.log('Light on!');
-        };
-
-        var offAlert = function(){
-            console.log('Light off!');
-        };
-
-        $(document).keydown(function(e){
-            switch(e.key){
-                case 37:
-                    onAlert();
-                    break;
-                case 39:
-                    offAlert();
-                    break;
-            }
+        $('#left-btn').click(function(){
+           console.log('left');
         });
 
-        $('#left-btn').click(onAlert);
+        $('#right-btn').click(function(){
+           console.log('right');
+        });
 
-        $('#right-btn').click(offAlert);
+        $(document).keydown(function(e){
+            if(e.key == 37){
+                $('#left-btn').click();
+                return false
+            }
+            if(e.key == 39){
+                $('#right-btn').click();
+            }
+        });
     });
 
 </script>
