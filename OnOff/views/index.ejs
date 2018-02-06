@@ -1,15 +1,14 @@
 <meta name="viewport" content="width=500, initial-scale=1"> <!--This line of code is for mobile responsive -->
 
 <head>
+	<link rel="shortcut icon" href="data:;base64,=">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
 <div class="BorderMargin">
   <form action="/led/on" method="post">
-    <!--<button type="submit" formmethod="post" formaction="/led/on" class="button">LED On </button>-->
-    <!--<button type="submit" formmethod="post" formaction="/led/off" class="button buttonOff">LED Off</button>-->
-      <button id="left-btn" type="button" formmethod="post" formaction="/led/on" class="button">LED On </button>
-      <button id="right-btn" type="button" formmethod="post" formaction="/led/off" class="button buttonOff">LED Off</button>
+      	<button id="left-btn" type="submit" formmethod="post" formaction="/led/on" class="button">LED On </button>
+	<button id="right-btn" type="submit" formmethod="post" formaction="/led/off" class="button buttonOff">LED Off</button>
   </form>
   <a>Led Status: <%=status %></a>
 </div>
@@ -46,50 +45,26 @@
 </style>
 
 <script>
+	$(document).ready(function(){
+		$(document).keypress(function(e){
+		var code = e.keycode || e.which;
+		if(code == 37){
+			console.log('left');
+			}
+		});
+	});
 
-//    $(function(){
-//        var onAlert = function(){
-//            console.log('Light on!');
-//        };
-//
-//        var offAlert = function(){
-//            console.log('Light off!');
-//        };
-//
-//        $(document).keydown(function(e){
-//            switch(e.key){
-//                case 37:
-//                    onAlert();
-//                    break;
-//                case 39:
-//                    offAlert();
-//                    break;
-//            }
-//        });
-//
-//        $('#left-btn').click(onAlert);
-//
-//        $('#right-btn').click(offAlert);
-//    });
-
-    $(function(){
-        $('#left-btn').click(function(){
-           console.log('left');
-        });
-
-        $('#right-btn').click(function(){
-           console.log('right');
-        });
-
-        $(document).keydown(function(e){
-            if(e.key == 37){
-                $('#left-btn').click();
-                return false
-            }
-            if(e.key == 39){
-                $('#right-btn').click();
-            }
-        });
-    });
+//	$(window).keypress(function(e){
+//		var code = e.which || e.keycode;
+//		switch(code){
+//			case 37:
+//			$('#left-btn').click(console.log('left'));
+//			break;
+//			case 39:
+//			$('#right-btn').click(console.log('right'));
+//			break;
+//		}
+//	});
+     
 
 </script>
